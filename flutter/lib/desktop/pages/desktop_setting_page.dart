@@ -109,16 +109,11 @@ class _DesktopSettingPageState extends State<DesktopSettingPage>
       if (!bind.isOutgoingOnly() && !bind.isDisableSettings())
         _TabInfo('Security', Icons.enhanced_encryption_outlined,
             Icons.enhanced_encryption),
-      if (!bind.isDisableSettings())
-        _TabInfo('Network', Icons.link_outlined, Icons.link),
       if (!bind.isIncomingOnly())
         _TabInfo(
             'Display', Icons.desktop_windows_outlined, Icons.desktop_windows),
       if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
-        _TabInfo('Plugin', Icons.extension_outlined, Icons.extension),
-      if (!bind.isDisableAccount())
-        _TabInfo('Account', Icons.person_outline, Icons.person),
-      _TabInfo('About', Icons.info_outline, Icons.info)
+        _TabInfo('Plugin', Icons.extension_outlined, Icons.extension)
     ];
     return settingTabs;
   }
@@ -131,8 +126,6 @@ class _DesktopSettingPageState extends State<DesktopSettingPage>
       if (!bind.isIncomingOnly()) _Display(),
       if (!isWeb && !bind.isIncomingOnly() && bind.pluginFeatureIsEnabled())
         _Plugin(),
-      if (!bind.isDisableAccount()) _Account(),
-      _About(),
     ];
     return children;
   }
